@@ -47,6 +47,7 @@ class SessionRepository extends ServiceEntityRepository
         }
     }
 
+    /** Afficher les stagiaires non inscrits */
     public function findNonInscrits($session_id)
     {
         $em = $this->getEntityManager();
