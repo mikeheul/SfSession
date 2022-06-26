@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formateurs{% endblock %}
+
+{% block body %}
+    
+<h1 class="h1 mb-3 mt-3">Formateurs</h1>
+
+    <p><a href="{{ path('add_formateur') }}" class="btn btn-success">Ajouter un formateur</a></p>
+    
+    <table class="table table-striped table-dark">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Formateurs</th>
+                <th>Nb sessions</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formateur in formateurs %}
+            <tr>
+                <td><a href="{{ path('show_formateur', {'id': formateur.id}) }}">{{ formateur }}</a></td>
+                <td>{{ formateur.sessions | length }}</td>
+                <td>
+                    <a href="{{ path('edit_formateur', {'id': formateur.id}) }}"><i class="text-warning bi bi-pencil-square"></i></a>
+                    <a href=""><i class="text-danger bi bi-trash"></i></a>
+                </td>
+            </tr>        
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

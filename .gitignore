@@ -1,4 +1,3 @@
-
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -18,3 +17,4 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+node_modules

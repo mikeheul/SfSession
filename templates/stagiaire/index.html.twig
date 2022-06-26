@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stagiaires{% endblock %}
+
+{% block body %}
+
+    <h1 class="h1 mb-3 mt-3">Stagiaires</h1>
+
+    <p><a href="{{ path('add_stagiaire') }}" class="btn btn-success">Ajouter un stagiaire</a></p>
+
+    <table class="table table-striped sortable table-dark">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Stagiaire</th>
+                <th>Téléphone</th>
+                <th>Email</th>
+                <th>Sessions</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stagiaire in stagiaires %}
+            <tr>
+                <td><a href="{{ path('show_stagiaire', {'id': stagiaire.id}) }}">{{ stagiaire }}</a></td>
+                <td>{{ stagiaire.telephone }}</td>
+                <td>{{ stagiaire.email }}</td>
+                <td>{{ stagiaire.sessions | length }}</td>
+                <td>
+                    <a href="{{ path('edit_stagiaire', {'id': stagiaire.id}) }}"><i class="text-warning bi bi-pencil-square"></i></a>
+                    <a href=""><i class="text-danger bi bi-trash"></i></a>
+                </td>
+            </tr>        
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

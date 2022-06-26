@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catégorie | {{ categorie }}{% endblock %}
+
+{% block body %}
+
+    <h1 class="h1 mb-3 mt-3">Modules | {{ categorie }}</h1>
+    
+    <table class="table table-striped sortable table-dark">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Module</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for module in categorie.formModules %}
+            <tr class="align-middle">
+                <td><a href="">{{ module }}</a></td>
+                <td>{{ module.description }}</td>
+                <td><a href=""><i class="text-warning bi bi-pencil-square"></i></a></td>
+            </tr>        
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

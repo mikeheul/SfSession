@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter / Editer une catégorie{% endblock %}
+
+{% block body %}
+
+    {% if editMode %}
+        <h1 class="h1 mb-3 mt-3">Editer « {{ categorie }} »</h1>
+    {% else %}
+        <h1 class="h1 mb-3 mt-3">Ajouter une catégorie</h1>
+    {% endif %}
+    
+    {{ form_start(formCategorie) }}
+
+        <div class="row">
+            <div class="col">{{ form_row(formCategorie.intitule) }}</div>
+        </div>
+
+        <h4>Modules</h4>
+        
+        <div class="col-sm-8 col-sm-offset-2" id="modules_list" data-prototype="{{ form_widget(formCategorie.formModules.vars.prototype)| e('html_attr') }}">
+            {% for row in formCategorie.formModules %}
+                <div class="card bg-dark">
+                    <div class="card-header text-light">
+                        <strong>{{ row.vars.value.intitule }}</strong>
+                    </div>
+                    <div class="card-body">
+                        {{ form_row(row) }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {{ form_end(formCategorie) }}
+
+{% endblock %}

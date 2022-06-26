@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stagiaires{% endblock %}
+
+{% block body %}
+
+    <h1 class="h1 mb-3 mt-3">{{ stagiaire }}</h1>
+
+    <h3>Informations</h3>
+    <p class="text-light-2">
+        {# Email : {{ stagiaire.email }}<br>  #}
+        <strong>Téléphone :</strong> {{ stagiaire.telephone }}<br>
+        <strong>Email :</strong> {{ stagiaire.email }}<br>
+        <strong>Date de naissance :</strong> {{ stagiaire.dateNaissance | date('d-m-Y') ~ ' (' ~ stagiaire.age ~ ')'}}<br>
+        <strong>Adresse :</strong> {{ stagiaire.adresseComplete }}<br>
+    </p>
+
+    <h3>Sessions <span class="badge badge-primary">{{ stagiaire.sessions | length }}</span></h3>
+    <table class="table table-striped table-dark">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Statut</th>
+                <th>Formation</th>
+                <th>Session</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Inscrits</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for session in stagiaire.sessions %}
+            <tr class="align-middle">
+                <td><span class="badge badge-red">{{ session.statut }}</span></td>
+                <td>{{ session.formation }}</td>
+                <td><a href="{{ path('show_session', {'id': session.formation.id}) }}">{{ session }}</a></td>
+                <td>{{ session.dateDebut | date('d-m-Y') }}</td>
+                <td>{{ session.dateFin | date('d-m-Y') }}</td>
+                <td>{{ session.stagiaires | length ~ ' / ' ~ session.nbPlaces }}</td>
+            </tr>        
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

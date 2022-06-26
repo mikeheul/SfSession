@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+    <h1 class="h1 mb-3 mt-3">Accueil</h1>
+
+    {% if app.user %}
+        <p class="text-light">Bienvenue {{ app.user.pseudo }}</p>
+    {% endif %}
+
+    <h3>Sessions en cours</h3>
+    <table class="table table-striped table-dark">
+        <thead class="bg-success text-light">
+            <tr>
+                <th>Statut</th>
+                <th>Formation</th>
+                <th>Session</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Inscrits</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for session in progressSessions %}
+            <tr class="align-middle">
+                <td><span class="badge badge-red">{{ session.statut }}</span></td>
+                <td>{{ session.formation }}</td>
+                <td><a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a></td>
+                <td>{{ session.dateDebut | date('d-m-Y') }}</td>
+                <td>{{ session.dateFin | date('d-m-Y') }}</td>
+                <td>{{ session.stagiaires | length ~ ' / ' ~ session.nbPlaces }}</td>
+                <td><a href="{{ path('edit_session', {'id': session.id}) }}"><i class="text-warning bi bi-pencil-square"></i></a></td>
+            </tr>        
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    <h3>Sessions à venir</h3>
+    <table class="table table-striped table-dark">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Statut</th>
+                <th>Formation</th>
+                <th>Session</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Inscrits</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for session in futureSessions %}
+            <tr class="align-middle">
+                <td><span class="badge badge-red">{{ session.statut }}</span></td>
+                <td>{{ session.formation }}</td>
+                <td><a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a></td>
+                <td>{{ session.dateDebut | date('d-m-Y') }}</td>
+                <td>{{ session.dateFin | date('d-m-Y') }}</td>
+                <td>{{ session.stagiaires | length ~ ' / ' ~ session.nbPlaces }}</td>
+                <td><a href="{{ path('edit_session', {'id': session.id}) }}"><i class="text-warning bi bi-pencil-square"></i></a></td>
+            </tr>        
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    <h3>Sessions passées</h3>
+    <table class="table table-striped table-dark">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Statut</th>
+                <th>Formation</th>
+                <th>Session</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Inscrits</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for session in pastSessions %}
+            <tr class="align-middle">
+                <td><span class="badge badge-red">{{ session.statut }}</span></td>
+                <td>{{ session.formation }}</td>
+                <td><a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a></td>
+                <td>{{ session.dateDebut | date('d-m-Y') }}</td>
+                <td>{{ session.dateFin | date('d-m-Y') }}</td>
+                <td>{{ session.stagiaires | length ~ ' / ' ~ session.nbPlaces }}</td>
+                <td><a href="{{ path('edit_session', {'id': session.id}) }}"><i class="text-warning bi bi-pencil-square"></i></a></td>
+            </tr>        
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

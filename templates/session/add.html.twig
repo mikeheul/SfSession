@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter / Modifier une session{% endblock %}
+
+{% block body %}
+
+    {% if editMode %}
+        <h1 class="h1 mb-3 mt-3">Modifier une session</h1>
+    {% else %}
+        <h1 class="h1 mb-3 mt-3">Ajouter une session</h1>
+    {% endif %}
+
+    {{ form_start(formSession) }}
+        <div class="row">
+            {{ form_row(formSession.intitule) }}
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form_row(formSession.dateDebut) }}
+            </div>
+            <div class="col">
+                {{ form_row(formSession.dateFin) }}
+            </div>
+        </div>
+        <div class="row">
+            {{ form_row(formSession.nbPlaces) }}
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form_row(formSession.formation) }}
+            </div>
+            <div class="col">
+                {{ form_row(formSession.formateurReferent) }}
+            </div>
+        </div>
+    {{ form_end(formSession) }}
+
+{% endblock %}

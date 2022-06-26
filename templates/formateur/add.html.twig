@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter / Modifier un formateur{% endblock %}
+
+{% block body %}
+
+    {% if editMode %}
+        <h1 class="h1 mb-3 mt-3">Modifier une Formateur</h1>
+    {% else %}
+        <h1 class="h1 mb-3 mt-3">Ajouter une Formateur</h1>
+    {% endif %}
+
+    {{ form_start(formFormateur) }}
+        <div class="row">
+            <div class="col">
+                {{ form_row(formFormateur.nom) }}
+            </div>
+            <div class="col">
+                {{ form_row(formFormateur.prenom) }}
+            </div>
+        </div>
+    {{ form_end(formFormateur) }}
+
+{% endblock %}

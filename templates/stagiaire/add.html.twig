@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter / Modifier un stagiaire{% endblock %}
+
+{% block body %}
+
+    {% if editMode %}
+        <h1 class="h1 mb-3 mt-3">Modifier un stagiaire</h1>
+    {% else %}
+        <h1 class="h1 mb-3 mt-3">Ajouter un stagiaire</h1>
+    {% endif %}
+
+    <div class="formulaire">
+        {{ form_start(formStagiaire) }}
+            <div class="row">
+                <div class="col">
+                    {{ form_row(formStagiaire.nom) }}
+                </div>
+                <div class="col">
+                    {{ form_row(formStagiaire.prenom) }}
+                </div>
+            </div>
+            <div class="row">
+                {{ form_row(formStagiaire.sexe) }}
+            </div>
+            <div class="row">
+                {{ form_row(formStagiaire.dateNaissance) }}
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form_row(formStagiaire.adresse) }}
+                </div>
+                <div class="col">
+                    {{ form_row(formStagiaire.codePostal) }}
+                </div>
+                <div class="col">
+                    {{ form_row(formStagiaire.ville) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form_row(formStagiaire.telephone) }}
+                </div>
+                <div class="col">
+                    {{ form_row(formStagiaire.email) }}
+                </div>
+            </div>
+        {{ form_end(formStagiaire) }}
+    </div>
+
+{% endblock %}

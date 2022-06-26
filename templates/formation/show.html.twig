@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sessions | {{ formation }}{% endblock %}
+
+{% block body %}
+
+    <h1 class="h1 mb-3 mt-3">Sessions | {{ formation }}</h1>
+    
+    <table class="table table-striped sortable table-dark">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Statut</th>
+                <th>Session</th>
+                <th>Formation</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Inscrits</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for session in formation.sessions %}
+            <tr class="align-middle">
+                <td><span class="badge badge-red">{{ session.statut }}</span></td>
+                <td><a href="{{ path('show_session', {'id': session.formation.id}) }}">{{ session }}</a></td>
+                <td>{{ session.formation }}</td>
+                <td>{{ session.dateDebut | date('d-m-Y') }}</td>
+                <td>{{ session.dateFin | date('d-m-Y') }}</td>
+                <td>{{ session.stagiaires | length ~ ' / ' ~ session.nbPlaces }}</td>
+                <td><a href="{{ path('edit_session', {'id': session.id}) }}"><i class="text-warning bi bi-pencil-square"></i></a></td>
+            </tr>        
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

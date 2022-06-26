@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+body {
+    padding-bottom: 150px;
+    /* background: linear-gradient(to right, #2980b9, #2c3e50); */
+    background: linear-gradient(to right, #566d7d, #3e4e5f);
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+h1, h2, h3, h4 , h5, .form-label, .form-check-label {
+    color: #fff;
+    font-weight: 400;
+}
+
+strong {
+    font-weight: 500;
+}
+
+input[type="number"] {
+    width:50px;
+    text-align: center;
+ }
+
+ .number {
+    width: 100% !important;
+    text-align: left !important;
+ }
+
+table {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+table td {
+     padding-left: 15px !important;
+}
+
+a {
+    color: #5b9ac8;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #6ab4e8;
+}
+
+.btn {
+    border: 1px solid #fff;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.btn-border-none {
+    border: none;
+}
+
+.bi {
+    font-size: 1.2em;
+}
+
+.badge-primary {
+    background: rgb(13, 44, 82);
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 10px;
+    vertical-align: super;
+}
+
+.badge-red {
+    background: rgb(248, 33, 50);
+    color: #fff;
+    font-size: 10px;
+    vertical-align: super;
+}
+
+.bg-custom {
+    background: rgb(40, 40, 40);
+}
+
+.accordion-button {
+    color: #ffffff !important;
+    background-color: #6c6c6c !important;
+}
+
+.text-light-2 {
+    color: rgb(205, 205, 205);
+}
+
+.form-label {
+    color: #000;
+}
+
+.card {
+    margin-bottom: 10px;
+}
+
+.formulaire {
+    display: flex;
+}
+
+@media(max-width:768px) {
+    .formulaire {
+        flex-direction: column;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+}

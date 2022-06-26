@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{% block body %}
+
+    <h1 class="h1 mb-3 mt-3">Utilisateurs</h1>
+
+    <table class="table table-striped sortable table-dark">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Pseudo</th>
+                <th>Email</th>
+                <th>Rôle</th>
+                <th>Actions</th>
+                <th>Admin</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.listRoles }}</td>
+                <td>
+                    {% if not user is same as(app.user) %}
+                        <a href=""><i class="text-warning bi bi-pencil-square"></i></a>
+                        <a href=""><i class="text-danger bi bi-trash"></i></a>  
+                    {% endif %}
+                </td>
+                <td>
+                    <input type="checkbox" {{ user.admin ? "checked" : "" }} data-toggle="toggle">
+                </td>
+            </tr>        
+        {% endfor %}
+        </tbody>
+    </table>
+    
+{% endblock %}
