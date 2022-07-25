@@ -35,7 +35,7 @@ class SessionController extends AbstractController
      * @ParamConverter("session", options={"mapping": {"idSe": "id"}})
      * @ParamConverter("stagiaire", options={"mapping": {"idSt": "id"}})
      */
-    public function addStagiaire(ManagerRegistry $doctrine, Request $request, Session $session, Stagiaire $stagiaire) {
+    public function addStagiaire(ManagerRegistry $doctrine, Session $session, Stagiaire $stagiaire) {
 
         // $session = $doctrine->getRepository(Session::class)->find($request->attributes->get('idSe'));
         // $stagiaire = $doctrine->getRepository(Stagiaire::class)->find($request->attributes->get('idSt'));
@@ -53,7 +53,7 @@ class SessionController extends AbstractController
      * @ParamConverter("stagiaire", options={"mapping": {"idSt": "id"}})
      * @IsGranted("ROLE_USER")
      */
-    public function removeStagiaire(ManagerRegistry $doctrine, Request $request, Session $session, Stagiaire $stagiaire) {
+    public function removeStagiaire(ManagerRegistry $doctrine, Session $session, Stagiaire $stagiaire) {
 
         // $session = $doctrine->getRepository(Session::class)->find($request->attributes->get('idSe'));
         // $stagiaire = $doctrine->getRepository(Stagiaire::class)->find($request->attributes->get('idSt'));
