@@ -16,7 +16,7 @@ class HomeController extends AbstractController
      * @Route("/", name="app_home")
      * @IsGranted("ROLE_USER")
      */
-    public function index(SessionRepository $sr, Request $request): Response
+    public function index(SessionRepository $sr): Response
     {
         $pastSessions = $sr->findPastSessions();
         $progressSessions = $sr->findProgressSessions();
