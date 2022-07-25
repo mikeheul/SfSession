@@ -100,7 +100,6 @@ class SessionRepository extends ServiceEntityRepository
         $session = $this->find($session_id);
         $allModules = $this->getEntityManager()->getRepository(FormModule::class)->findAll();
         $tabProg = [];
-        $tab = [];
 
         foreach($session->getProgrammes() as $programme) {
             $tabProg[] = $programme->getFormModule();

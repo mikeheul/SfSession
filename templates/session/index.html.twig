@@ -22,6 +22,7 @@
         </thead>
         <tbody>
         {% for session in sessions %}
+        {{ dump(session)}}
             <tr class="align-middle">
                 <td><span class="badge badge-red">{{ session.statut }}</span></td>
                 <td><a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a></td>
